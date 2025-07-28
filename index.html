@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="HandheldFriendly" content="true">
+    <title></title>
+    <style>
+        .animated-lightbox {
+          transition: visibility 0.5s, opacity 0.5s;
+          visibility: hidden;
+          opacity: 0;
+        }
+
+        .show-lightbox {
+          opacity: 1;
+          display: block !important;
+          visibility: visible;
+        }
+    </style>
+    <style>
+        .animated-lightbox {
+          transition: visibility 0.5s, opacity 0.5s;
+          visibility: hidden;
+          opacity: 0;
+        }
+
+        .show-lightbox {
+          opacity: 1;
+          display: block !important;
+          visibility: visible;
+        }
+    </style>
+    <link rel="preconnect" href="//styles.assets-landingi.com">
+    <link rel="preconnect" href="//old.assets-landingi.com">
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//images.assets-landingi.com">
+    <link rel="preconnect" href="//cdn.lugc.link">
+    <link rel="preload" fetchpriority="high" as="image" href="https://cdn.lugc.link/4cf1fe96-1a16-45f6-9ec3-e0f8b3dcb83c/-/crop/674x369/69,133/-/preview/301x157/-/format/auto/">
+    <link rel="preload" fetchpriority="high" as="image" href="https://cdn.lugc.link/c93c8907-ae9d-4759-b4be-f3afea173103/-/format/auto/-/stretch/off/-/resize/763x/">
+    <script async src="https://www.clarity.ms/s/0.8.21/clarity.js"></script>
+    <script src="https://connect.facebook.net/signals/config/1069763237702023?v=2.9.220&amp;r=stable&amp;hme=6531127cc5702b048f1a4e2975833edefec3a60f8f391fe8ffb9a77b3d2626d1&amp;ex_m=83%2C143%2C124%2C18%2C117%2C58%2C40%2C118%2C64%2C57%2C131%2C72%2C13%2C82%2C26%2C112%2C103%2C62%2C65%2C111%2C128%2C91%2C133%2C7%2C3%2C4%2C6%2C5%2C2%2C73%2C81%2C134%2C206%2C155%2C52%2C211%2C208%2C209%2C45%2C170%2C25%2C61%2C215%2C214%2C158%2C28%2C51%2C8%2C54%2C77%2C78%2C79%2C84%2C107%2C27%2C24%2C110%2C106%2C105%2C125%2C63%2C127%2C126%2C41%2C108%2C50%2C100%2C12%2C130%2C37%2C197%2C199%2C165%2C21%2C22%2C23%2C15%2C16%2C36%2C33%2C34%2C68%2C74%2C76%2C89%2C116%2C119%2C38%2C90%2C19%2C17%2C94%2C59%2C31%2C121%2C120%2C122%2C113%2C20%2C30%2C49%2C88%2C129%2C29%2C180%2C151%2C86%2C109%2C67%2C98%2C44%2C39%2C96%2C97%2C102%2C48%2C14%2C104%2C95%2C55%2C43%2C46%2C0%2C80%2C132%2C1%2C101%2C11%2C99%2C255%2C195%2C141%2C183%2C176%2C9%2C47%2C75%2C53%2C123%2C56%2C93%2C71%2C70%2C42%2C114%2C69%2C66%2C60%2C92%2C85%2C35%2C115%2C32%2C87%2C10%2C135" async></script>
+    <script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
+    <script async src="https://www.clarity.ms/tag/ic1ywa9bxy"></script>
+    <script async src="https://www.clarity.ms/s/0.8.21/clarity.js"></script>
+    <script src="https://connect.facebook.net/signals/config/24004209532544664?v=2.9.220&amp;r=stable&amp;domain=www.suacozinhasaudavel.com.br&amp;hme=6531127cc5702b048f1a4e2975833edefec3a60f8f391fe8ffb9a77b3d2626d1&amp;ex_m=83%2C143%2C124%2C18%2C117%2C58%2C40%2C118%2C64%2C57%2C131%2C72%2C13%2C82%2C26%2C112%2C103%2C62%2C65%2C111%2C128%2C91%2C133%2C7%2C3%2C4%2C6%2C5%2C2%2C73%2C81%2C134%2C206%2C155%2C52%2C211%2C208%2C209%2C45%2C170%2C25%2C61%2C215%2C214%2C158%2C28%2C51%2C8%2C54%2C77%2C78%2C79%2C84%2C107%2C27%2C24%2C110%2C106%2C105%2C125%2C63%2C127%2C126%2C41%2C108%2C50%2C100%2C12%2C130%2C37%2C197%2C199%2C165%2C21%2C22%2C23%2C15%2C16%2C36%2C33%2C34%2C68%2C74%2C76%2C89%2C116%2C119%2C38%2C90%2C19%2C17%2C94%2C59%2C31%2C121%2C120%2C122%2C113%2C20%2C30%2C49%2C88%2C129%2C29%2C180%2C151%2C86%2C109%2C67%2C98%2C44%2C39%2C96%2C97%2C102%2C48%2C14%2C104%2C95%2C55%2C43%2C46%2C0%2C80%2C132%2C1%2C101%2C11%2C99%2C255%2C195%2C141%2C183%2C176%2C9%2C47%2C75%2C53%2C123%2C56%2C93%2C71%2C70%2C42%2C114%2C69%2C66%2C60%2C92%2C85%2C35%2C115%2C32%2C87%2C10%2C135%2C221%2C220%2C222%2C227%2C228%2C229%2C225%2C217%2C157%2C193%2C216%2C218%2C257%2C196%2C144%2C187%2C172%2C153%2C254%2C138%2C161%2C145%2C178%2C152%2C185%2C207%2C136%2C148" async></script>
+    <script src="https://connect.facebook.net/signals/config/3260370924247916?v=2.9.220&amp;r=stable&amp;domain=www.suacozinhasaudavel.com.br&amp;hme=6531127cc5702b048f1a4e2975833edefec3a60f8f391fe8ffb9a77b3d2626d1&amp;ex_m=83%2C143%2C124%2C18%2C117%2C58%2C40%2C118%2C64%2C57%2C131%2C72%2C13%2C82%2C26%2C112%2C103%2C62%2C65%2C111%2C128%2C91%2C133%2C7%2C3%2C4%2C6%2C5%2C2%2C73%2C81%2C134%2C206%2C155%2C52%2C211%2C208%2C209%2C45%2C170%2C25%2C61%2C215%2C214%2C158%2C28%2C51%2C8%2C54%2C77%2C78%2C79%2C84%2C107%2C27%2C24%2C110%2C106%2C105%2C125%2C63%2C127%2C126%2C41%2C108%2C50%2C100%2C12%2C130%2C37%2C197%2C199%2C165%2C21%2C22%2C23%2C15%2C16%2C36%2C33%2C34%2C68%2C74%2C76%2C89%2C116%2C119%2C38%2C90%2C19%2C17%2C94%2C59%2C31%2C121%2C120%2C122%2C113%2C20%2C30%2C49%2C88%2C129%2C29%2C180%2C151%2C86%2C109%2C67%2C98%2C44%2C39%2C96%2C97%2C102%2C48%2C14%2C104%2C95%2C55%2C43%2C46%2C0%2C80%2C132%2C1%2C101%2C11%2C99%2C255%2C195%2C141%2C183%2C176%2C9%2C47%2C75%2C53%2C123%2C56%2C93%2C71%2C70%2C42%2C114%2C69%2C66%2C60%2C92%2C85%2C35%2C115%2C32%2C87%2C10%2C135%2C221%2C220%2C222%2C227%2C228%2C229%2C225%2C217%2C157%2C193%2C216%2C218%2C257%2C196%2C144%2C187%2C172%2C153%2C254%2C138%2C161%2C145%2C178%2C152%2C185" async></script>
+    <script src="https://connect.facebook.net/signals/config/1069763237702023?v=2.9.220&amp;r=stable&amp;domain=www.suacozinhasaudavel.com.br&amp;hme=6531127cc5702b048f1a4e2975833edefec3a60f8f391fe8ffb9a77b3d2626d1&amp;ex_m=83%2C143%2C124%2C18%2C117%2C58%2C40%2C118%2C64%2C57%2C131%2C72%2C13%2C82%2C26%2C112%2C103%2C62%2C65%2C111%2C128%2C91%2C133%2C7%2C3%2C4%2C6%2C5%2C2%2C73%2C81%2C134%2C206%2C155%2C52%2C211%2C208%2C209%2C45%2C170%2C25%2C61%2C215%2C214%2C158%2C28%2C51%2C8%2C54%2C77%2C78%2C79%2C84%2C107%2C27%2C24%2C110%2C106%2C105%2C125%2C63%2C127%2C126%2C41%2C108%2C50%2C100%2C12%2C130%2C37%2C197%2C199%2C165%2C21%2C22%2C23%2C15%2C16%2C36%2C33%2C34%2C68%2C74%2C76%2C89%2C116%2C119%2C38%2C90%2C19%2C17%2C94%2C59%2C31%2C121%2C120%2C122%2C113%2C20%2C30%2C49%2C88%2C129%2C29%2C180%2C151%2C86%2C109%2C67%2C98%2C44%2C39%2C96%2C97%2C102%2C48%2C14%2C104%2C95%2C55%2C43%2C46%2C0%2C80%2C132%2C1%2C101%2C11%2C99%2C255%2C195%2C141%2C183%2C176%2C9%2C47%2C75%2C53%2C123%2C56%2C93%2C71%2C70%2C42%2C114%2C69%2C66%2C60%2C92%2C85%2C35%2C115%2C32%2C87%2C10%2C135" async></script>
+    <script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
+    <script async src="https://www.clarity.ms/tag/ic1ywa9bxy"></script>
+    <script fetchpriority="high">
+    (function(src, cb) {
+    var s = document.createElement('script'); s.setAttribute('src', src); s.setAttribute('fetchpriority', 'high');
+    s.onload = cb; (document.head || document.body).appendChild(s);
+    })('https://ucarecdn.com/libs/blinkloader/3.x/blinkloader.min.js', function() {
+    window.Blinkloader.optimize({
+      fadeIn:false,
+      lazyload:true,
+      smartCompression:true,
+      responsive:true,
+      retina:true,
+      webp:true,
+      pubkey:'ca6af56c901b93c58ffa',
+      cdnBase:'https://cdn.lugc.link'
+    });
+
+    if (window.location !== window.parent.location) {
+        window.onload = function() {
+            setTimeout(function () {
+                window.dispatchEvent(new CustomEvent('scroll'))
+            }, 500);
+        };
+    }
+    })
+    </script>
+    <script src="https://ucarecdn.com/libs/blinkloader/3.x/blinkloader.min.js" fetchpriority="high"></script>
+    <script src="https://ucarecdn.com/libs/blinkloader/3.x/blinkloader.min.js" fetchpriority="high"></script>
+    <style>
+    body #Kw0B1TUll9S1unndvTVZez7o54kIwfae.widget-section { background-image: url("https://cdn.lugc.link/c93c8907-ae9d-4759-b4be-f3afea173103/-/format/auto/-/stretch/off/-/resize/763x/");}
+    </style>
+    <style>
+    #ODh4LRsVVx8waA9q2B5f13m5imMxwwo4.widget-section:not(.lazyload) { background-image: url("https://cdn.lugc.link/cd120e78-72c5-4cbc-9cb9-a5627d53b43f/-/format/auto/-/stretch/off/-/resize/763x/");}
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i&amp;subset=latin,latin-ext&amp;display=swap" type="text/css" rel="stylesheet" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i&amp;subset=latin,latin-ext&amp;display=swap" type="text/css" rel="stylesheet" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;subset=latin,latin-ext&amp;display=swap" type="text/css" rel="stylesheet" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;subset=latin,latin-ext&amp;display=swap" type="text/css" rel="stylesheet" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=latin,latin-ext&amp;display=swap" type="text/css" rel="stylesheet" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700,300,300italic,400italic,700italic&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext&amp;display=swap" type="text/css" rel="stylesheet" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,700,700italic&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext&amp;display=swap" type="text/css" rel="stylesheet" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="//fonts.googleapis.com/css?family=Encode+Sans+Condensed:300,400,700&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext&amp;display=swap" type="text/css" rel="stylesheet" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://styles.assets-landingi.com/assets/css/170325-landend-base.css" type="text/css" rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://styles.assets-landingi.com/1N2ARgtahdapmIIe/base.css" type="text/css" rel="stylesheet">
+    <script>
+    var landingiInternalDetails = {
+        'landing_id': '1896285',
+        'landing_hash': '3faf3564155e3fca3ac5',
+        'landing_variant_hash': '',
+        'landing_name': 'B+Cart',
+        'landing_lang': 'pt',
+        'account_uuid': 'fcb37a2c-5b4e-4522-9919-a8feba58b5e6',
+        'apikey': 'bbf4c49b-7fce-47e1-8c6a-da83c8dff0f3'
+    }
+    </script>
+    <script src="//code.jivosite.com/%20widget/%2035pQicz0Yw" async></script>
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ic1ywa9bxy");
+    </script><!-- Meta Pixel Code -->
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1069763237702023');
+    fbq('track', 'PageView');
+    </script>
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1431052247829356');
+        fbq('track', 'PageView');
+    </script><noscript>&lt;img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1431052247829356&amp;ev=PageView&amp;noscript=1" /&gt;</noscript>
+  </head>
+  <body id="Zcc579e32ab7c2c234c287cbcbc03f3a7639f9f1">
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1069763237702023&amp;ev=PageView&amp;noscript=1"> <!-- End Meta Pixel Code -->
+    <script>
+
+    (async function (w, d) {
+    try {
+        const response = await w.fetch(
+            'https://' + 'tagmanager.landingi.io' + '/account/' + 'fcb37a2c-5b4e-4522-9919-a8feba58b5e6'
+        );
+        const gtm = await response.json();
+
+        if (gtm) {
+            const script = d.head.getElementsByTagName('script')[0];
+            const tmpl = d.createElement('template');
+            tmpl.innerHTML = gtm;
+            tmpl.content.childNodes.forEach((node) => {
+                let elem = node;
+
+                if ('SCRIPT' === node.nodeName) {
+                    elem = d.createElement('script');
+
+                    if (node.textContent) {
+                        elem.textContent = node.textContent;
+                    }
+
+                    if (node.src) {
+                        elem.src = node.src;
+                        elem.type = node.type;
+                    }
+
+                    script.parentNode.insertBefore(elem, script);
+                }
+
+                if ('STYLE' === node.nodeName) {
+                    elem = d.createElement('style');
+
+                    if (node.textContent) {
+                        elem.textContent = node.textContent;
+                    }
+
+                    script.parentNode.insertBefore(elem, script);
+                }
+            })
+        }
+    } catch (err) {
+        console.log(err);
+    }
+    })(window, document);
+    </script>
+    <script>
+
+    window.lazySizesConfig = window.lazySizesConfig || {};
+    window.lazySizesConfig.init = false;
+    </script> 
+    <script data-cookieconsent="ignore" type="text/javascript" src="//assetslp.link/assets/js/landend/lazysizes.min.js?v=10122024151600"></script> 
+    <script>
+
+    lazySizes.init();
+    </script>
+    <script defer fetchpriority="low" src="https://popups.landingi.com/api/v3/landing/install-code?apikey=bbf4c49b-7fce-47e1-8c6a-da83c8dff0f3&amp;landing=3faf3564155e3fca3ac5"></script>
+    <script defer fetchpriority="low" src="https://scripts.assets-landingi.com/landend/130225/lightbox-render.js?v=1753500692"></script>
+    <script>
+
+    window.addEventListener('load', function () {
+    LightboxRender.init({
+        useAaf: true
+    })
+    });
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <div id="DznJVKNz4R8GMtufLVZeFtAsEo7iz1cq" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="pDLgiQJ0Xor2xKkKuJgpAhsDVuatlndX" class="widget widget-text wow fadeInLeft">
+            <p>
+              <span style="background-color: transparent;"><b>65% OFF - Últimos dias de Promo!</b></span>
+            </p>
+            <p>
+              <span style="background-color: transparent; color: rgb(255, 230, 146);">Aproveite nosso maior desconto!!</span><br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="k1rqNiG5fcHdy07dU31vHXKsqwDwUMuM" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <img id="otAJzhWTdpVmIMGlX4lE1JnEN5pSyF9C" data-original="https://images.assets-landingi.com/uc/4cf1fe96-1a16-45f6-9ec3-e0f8b3dcb83c/0142.crop_674x369_69,133.preview.jpg" class="widget widget-image" src="https://cdn.lugc.link/4cf1fe96-1a16-45f6-9ec3-e0f8b3dcb83c/-/crop/674x369/69,133/-/preview/301x157/-/format/auto/" alt="Image" width="674" height="369" fetchpriority="high">
+          <div id="uNmv2SB3Mm9NqPkUBg8cLzpxl8IapTZN" class="widget widget-box"></div>
+          <div id="O6qGSoTHlyAFPs73E0TvUrVfTMB26amd" class="widget widget-text">
+            <p>
+              <span style="color: inherit;">APENAS</span> <span style="font-weight: bold;">$9,90</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="Kw0B1TUll9S1unndvTVZez7o54kIwfae" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="PZ0fSCIPMnHdfnLyfNfnSgfdOHABZVne" class="widget widget-box"></div>
+        </div>
+      </div>
+    </div>
+    <div id="W5VfaPF1aiC4oGe8cDyIiln1NCSglCoG" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="iLLWFcTxVDTegWOUGI33CWSAGLGDmzH0" class="widget widget-box"></div>
+          <div id="U9hNKLAZWu7fg7qLXhp6kuQhvKPo5Oql" class="widget widget-text">
+            <p>
+              Receitas <b>Testadas e Aprovada</b>
+            </p>
+            <p>
+              <span style="letter-spacing: 0px; background-color: transparent;">Ingredientes</span> <b style="letter-spacing: 0px; background-color: transparent;">Acessíveis</b>
+            </p>
+            <p>
+              <span style="letter-spacing: 0px; background-color: transparent;">Acesso</span> <b style="letter-spacing: 0px; background-color: transparent;">Vitalício</b>
+            </p>
+          </div><img src="https://icons.assets-landingi.com/icon_d0e7fd57d573b44cb024e410f876787e0392a41d.svg" id="F24df7TnKTIlyPz8kS9LDsxaDAhwhFtw" class="widget widget-svgicon" alt=""><img src="https://icons.assets-landingi.com/icon_d0e7fd57d573b44cb024e410f876787e0392a41d.svg" id="PJRAoux2Pm4tboawFJxm9TNTvZsKdVWr" class="widget widget-svgicon" alt=""><img src="https://icons.assets-landingi.com/icon_d0e7fd57d573b44cb024e410f876787e0392a41d.svg" id="DZnkkGBa1lwz7nz2k0QLrZL4zQk0fwKk" class="widget widget-svgicon" alt="">
+        </div>
+      </div>
+    </div>
+    <div id="IDgOye6yau6AsEhxuPzCQE9p42p0n0MD" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="pMRxi6GypmMdFJsKUg9l6vr3k4rOvWDW" class="widget widget-box"></div>
+          <div id="M1BIbEtbryDdtEGelIahi9KWUSryFCql" class="widget widget-text">
+            <p>
+              Lista de compras
+            </p>
+          </div>
+          <div id="DyhZ0VBqaJZokZ6gydkwWNKfhqCbK2xd" class="widget widget-text">
+            <p>
+              Ingredientes Acessíveis
+            </p>
+          </div>
+          <div id="ZFOFVagpXGFBA4XD50U68q96U6gqwINr" class="widget widget-text">
+            <p>
+              Cardápios práticos.
+            </p>
+          </div>
+          <div id="mwNi952SZNQi6UhHetWTLxI1TCZFnTTo" class="widget widget-text">
+            <p>
+              Pratos com proteína animal
+            </p>
+          </div>
+          <div id="R52iXacGKRtUHT0WzD9TvbDNlGff9uNR" class="widget widget-text">
+            <p>
+              Receitas para <b>reduzir Inflamações silenciosas,</b> desinchar e devolver
+            </p>
+            <p>
+              levesa ao corpo.
+            </p>
+          </div>
+          <div id="S6O7WoZ4oB423UiAmvemfTS3bvcmgCoA" class="widget widget-text wow fadeInUp">
+            <p>
+              Receitas exclusivas para <b>Almoço e Jantar</b>
+            </p>
+          </div>
+          <div id="JqTyKqMPkZWsl5VB8RqvtrhrWVvlLkWd" class="widget widget-box adaptive-delivery-prevent-bg"></div>
+          <div id="D3u0mlvTVCz6o9aPdKPXDa76t92vKQqO" class="widget widget-text">
+            <p>
+              <i style="font-weight: normal;">e opções vegana.</i>
+            </p>
+          </div>
+          <div id="vf87544o8B6GF6ooGSUbmNaKMsRHcS2u" class="widget widget-text">
+            <p>
+              Receitas para toda a semana.
+            </p>
+          </div><a href="/receitas-anti-inflamatorias/button/N2HTuZs4UBDI7r0Q1TBz5iTxaTzwiJgx" id="N2HTuZs4UBDI7r0Q1TBz5iTxaTzwiJgx" class="widget widget-button editable-element" version="3" subtype="redirect" rel="noopener noreferrer" data-target-url="https://pay.celetus.com/NUTSI26U?model=7">
+          <div class="widget-overlay"></div>
+          <div id="SwNxAW6WsI9uLzqqF7HrR6vfz7vr0kfZ" class="widget widget-text">
+            BAIXAR MINHA CÓPIA
+          </div></a>
+          <div id="NmNRANnxTxlemXoMoRBNou7yJlbzqFEG" class="widget widget-box"></div>
+        </div>
+      </div>
+    </div>
+    <div id="dS6PMubpPWw7OTaHACq89teDRU5Xc4Gg" class="widget widget-section">
+      <div class="row">
+        <div class="container"></div>
+      </div>
+    </div>
+    <div id="mZnDNc1uvwG2Lrubc5uvB2NsVDUQE2up" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="QRGCIlTtR8kXgWUaAtIvyPqOaasDKlfR" class="widget widget-box adaptive-delivery-prevent-bg" style="background-size: cover; background-position: center center; background-repeat: no-repeat; background-image: url(&quot;https://cdn.lugc.link/ddcb03da-3b40-46ba-9c07-eac4425a94d7/-/crop/267x168/0,0/-/preview/-/stretch/off/-/format/auto/-/quality/normal/-/preview/&quot;);"></div>
+          <div id="ybnrcDT3720UQcRpmKvLnDHgHAWJWzQq" class="widget widget-text">
+            <p>
+              Sopas Anti-inflamatórias
+            </p>
+          </div>
+          <div id="Lh0OvGiOSLGiFDp5ACpK5SChGPVidEpS" class="widget widget-text">
+            <p>
+              A combinação perfeita de ingredientes
+            </p>
+            <p>
+              anti-inflamatórios em sopas nutritivas e saborosas para aliviar dores e desconfortos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="aCOHEobbblc6rPRarzGEIETgbtfzKp91" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <img id="S1oW11BSRuDbOP3ZyaWXlT4b58SJfZDs" data-original="https://images.assets-landingi.com/uc/ab78b3e4-0825-493b-bdcf-8e014ce252f0/CapturadeTela20250614as135913.crop_97x96_6,9.preview.png" class="widget widget-image lazyloaded" data-src="https://cdn.lugc.link/ab78b3e4-0825-493b-bdcf-8e014ce252f0/-/crop/97x96/6,9/-/preview/34x34/-/format/auto/" alt="" width="59" height="59" decoding="async" src="https://cdn.lugc.link/ab78b3e4-0825-493b-bdcf-8e014ce252f0/-/crop/97x96/6,9/-/preview/34x34/-/format/auto/">
+          <div id="uWPxLkgJ1scqc6isn7ymz3dIio0nqRVi" class="widget widget-text">
+            <p>
+              Receitas assinadas por <i>Lara Vencato,</i>
+            </p>
+          </div>
+          <div id="ROOMsEn1wSrMEuXmvACQrBQ9glksbUWe" class="widget widget-text">
+            <p>
+              criadora do
+            </p>
+          </div>
+          <div id="Ry4D0N4dMvq7Fyue2X710rsV0SuhH7RL" class="widget widget-text">
+            <p>
+              sua.cozinhasaudavel
+            </p>
+          </div><img id="OZaTCQlt7rRvzhHTpR1NRblsRui7M5E9" data-original="https://images.assets-landingi.com/uc/04c9c1cb-dc6d-4b40-a0e9-64acdbddbb5f/download.jpeg" class="widget widget-image lazyloaded" data-src="https://cdn.lugc.link/04c9c1cb-dc6d-4b40-a0e9-64acdbddbb5f/-/preview/13x13/-/format/auto/" alt="" width="59" height="59" decoding="async" src="https://cdn.lugc.link/04c9c1cb-dc6d-4b40-a0e9-64acdbddbb5f/-/preview/13x13/-/format/auto/"><img id="tDMQ4nfhgqecynWsaEXqNdBn7ALWdMlF" data-original="https://images.assets-landingi.com/uc/be84856d-a60a-4b6a-98b4-593403504ddb/download.png" class="widget widget-image lazyloaded" data-src="https://cdn.lugc.link/be84856d-a60a-4b6a-98b4-593403504ddb/-/preview/18x18/-/format/auto/" alt="" width="59" height="57" decoding="async" src="https://cdn.lugc.link/be84856d-a60a-4b6a-98b4-593403504ddb/-/preview/18x18/-/format/auto/">
+        </div>
+      </div>
+    </div>
+    <div id="kv44rCekpc2xdM6LhPWu8qvvkUVE9QyQ" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <img id="r0JWqMuPKSe6OTOEF8GJAlnmafwgCUln" data-original="https://images.assets-landingi.com/uc/35ed8989-dba6-4f80-8f49-963fae1d3311/Depoimentosprovasocial.crop_507x600_93,0.preview.jpg" class="widget widget-image lazyloaded" data-src="https://cdn.lugc.link/35ed8989-dba6-4f80-8f49-963fae1d3311/-/crop/507x600/93,0/-/preview/303x361/-/format/auto/" alt="" width="507" height="600" decoding="async" src="https://cdn.lugc.link/35ed8989-dba6-4f80-8f49-963fae1d3311/-/crop/507x600/93,0/-/preview/303x361/-/format/auto/">
+          <div id="rIvCmc0ZkyueR2cXq47HSzKk2ptGWHZ5" class="widget widget-text">
+            <p>
+              Confira os depoimentos reais no post fixado
+            </p>
+          </div>
+          <div id="GHVRUF8IZpW9nQxlw2DFD1JAg5U9de2q" class="widget widget-text">
+            <p>
+              Mais de <b>500 comentários</b>
+            </p>
+            <p>
+              de clientes satisfeitos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="wS3FAnk8b7nLwRbLDJCyQ585BJM5Fksd" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <img id="xXpNFCq94p5SB0F7yRKEaTgmfTqkWh67" data-original="https://images.assets-landingi.com/uc/0b6e52ff-1d94-4711-8f07-43e5d0b53716/1.crop_810x1187_0,0.preview.jpg" class="widget widget-image lazyloaded" data-src="https://cdn.lugc.link/0b6e52ff-1d94-4711-8f07-43e5d0b53716/-/crop/810x1187/0,0/-/preview/320x469/-/format/auto/" alt="" width="810" height="1187" decoding="async" src="https://cdn.lugc.link/0b6e52ff-1d94-4711-8f07-43e5d0b53716/-/crop/810x1187/0,0/-/preview/320x469/-/format/auto/">
+        </div>
+      </div>
+    </div>
+    <div id="Rt19TchEBii4OKU73mKh5nL9i7et14cw" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <img id="bZyVL8oJvq60ctdIJvDAi28bOMTQKKdT" data-original="https://images.assets-landingi.com/uc/9231f982-1a0f-4536-86c2-fee08a8d91b1/2.jpg" class="widget widget-image lazyloaded" data-src="https://cdn.lugc.link/9231f982-1a0f-4536-86c2-fee08a8d91b1/-/preview/319x568/-/format/auto/" alt="" width="810" height="1440" decoding="async" src="https://cdn.lugc.link/9231f982-1a0f-4536-86c2-fee08a8d91b1/-/preview/319x568/-/format/auto/">
+        </div>
+      </div>
+    </div>
+    <div id="a7LWMKK5dUP63C2DvtbnK6ul90pvoIAg" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="Wsby0dd7Blza8eBEuDUxc1nxdahHqKNh" class="widget widget-text">
+            <p>
+              <b>Receba instantaneamente</b>
+            </p>
+          </div><img src="https://icons.assets-landingi.com/icon_1eca1719289981638d12b2ea15b55246.svg" id="yFIrp6iDdd4N7WXNRRsAlscn1M6zJv3d" class="widget widget-svgicon" alt=""><img src="https://icons.assets-landingi.com/icon_40792baf9f79d201b12b6f315881245a.svg" id="kSNTlZJqyoe3CN3zKWsuHZIwbrRsghBx" class="widget widget-svgicon" alt="">
+          <div id="KBFwqRTQxUP4gOTB8VBhQngfyFlDRdKK" class="widget widget-box"></div>
+          <div id="Ma0Txs7QgMlDwRyItTkfN8K0qCFMWzoX" class="widget widget-text">
+            <p>
+              <span style="background-color: transparent;">após o pagamento.</span> <span style="background-color: transparent; font-weight: bold;">Zero espera!</span><br>
+            </p>
+          </div>
+          <div id="LHvQM4TQ4iqnWGrmkm1rTNrnLCZ55KL7" class="widget widget-text">
+            <p>
+              <b style="background-color: transparent;">por<span style="color: rgb(251, 251, 251);">-----</span></b><b style="background-color: transparent;">e-mail e<span style="color: rgb(251, 251, 251);">----</span>WhatsApp</b>
+            </p>
+          </div>
+          <div id="hizsLfh1HaOUJ379ND7gNTDfTm2M78ku" class="widget widget-text wow fadeInUp">
+            <p>
+              Como vou <b>receber?</b>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="nw36uP7k8p9IPv3bq1ZMUM638VALP7Zt" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="FKt42mnBTHPef33SczE4w4VoXz9Lpeqa" class="widget widget-text">
+            <p>
+              <span style="color: inherit;"><span style="font-weight: bold;">Não!</span> Usamos ingredientes simples que você já tem em casa.</span>
+            </p>
+          </div>
+          <div id="sWXW06n4RfRdhCxi12TD6dITKpi3vAoQ" class="widget widget-text">
+            <p>
+              Lara, os ingredientes são caros?
+            </p>
+          </div>
+          <div id="AszGnSiTQi81QBVRkclb61ZTtTAaoKGN" class="widget widget-text">
+            <p>
+              O e-book chega mesmo depois do pagamento?
+            </p>
+          </div>
+          <div id="k6M4rywGuRzCCBgOnLIr3sbhp2lh8tGs" class="widget widget-text">
+            <p>
+              <span style="color: rgb(0, 0, 0); font-weight: 700;">Sim!</span> <span style="color: rgb(0, 0, 0);">Você recebe na hora no seu e-mail e no WhatsApp. É tudo automático.</span>
+            </p>
+          </div>
+          <div id="vXOaAH75KM5FtXUdp4OeKveaRmtn7rP1" class="widget widget-box"></div>
+          <div id="UONHKiaIpKCtx7PBSQmseailCrEeQ5V1" class="widget widget-text wow zoomIn">
+            <b style="">Sempre me perguntam:</b>
+          </div>
+          <div id="cD8V5Kih4K5ARVwRfRGo2CfcWw6wZ5VD" class="widget widget-box"></div>
+          <div id="cf57PIvkBDCfVnF83S8LTdPooliqqrsx" class="widget widget-box"></div>
+          <div id="LCqBPdH4yvbagKm3MN06QD8QWkpm8RXh" class="widget widget-text">
+            <p>
+              <span style="color: rgb(0, 0, 0); font-weight: 700;">Não!</span> <span style="color: rgb(0, 0, 0);">São receitas para todos os níveis, com um passo a passo super simples.</span>
+            </p>
+          </div>
+          <div id="kOOGBmPRVAoXvCfFUuhPefZVfo9EOHlt" class="widget widget-box"></div>
+          <div id="IG2AMDDFaB6vQzUe8GkPzv7smBNwuorB" class="widget widget-text">
+            <p>
+              Eu preciso ser experiente na cozinha?
+            </p>
+          </div>
+          <div id="JLiE6RZ3ardI53e52aqrMCWvJOpLKtB4" class="widget widget-text wow zoomIn">
+            <b style="">💬</b>
+          </div>
+          <div id="RktVH5mHkQVn2VWJRx2d0TBH8vcHzRi7" class="widget widget-box"></div>
+          <div id="U3tUxtu5q1y9ZcaqQXT3ADqbAxXrTOvT" class="widget widget-box"></div>
+        </div>
+      </div>
+    </div>
+    <div id="SCRLExTzAETyQGkxiPtcGd5Oe1fl6uZM" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="TMPAkWXzo42lxRfJnuiOfGu4yUPaNXZO" class="widget widget-text">
+            <p>
+              Cure seu corpo usando comida como remédio
+            </p>
+          </div>
+          <div id="XDkyq20kLaVNTv6FUH0T1TS1OL2JOi3R" class="widget widget-text">
+            <p>
+              Com pequenas mudanças na alimentação, você pode sentir mais disposição.
+            </p>
+            <p>
+              <br>
+            </p>
+            <p>
+              Menos dores e até menos dependência de medicamentos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="XzS8RlpfrnJ6DidiI932w0czkHCZngCo" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="NAHznsM0xATnFAVarxZHLW7PBOJk5tlc" class="widget widget-box adaptive-delivery-prevent-bg" style="background-size: cover; background-position: center center; background-repeat: no-repeat; background-image: url(&quot;https://cdn.lugc.link/918f64cf-9ab5-4d1b-a09c-0b15cb5f9a64/-/crop/1094x1326/40,62/-/enhance/51/-/preview/-/stretch/off/-/format/auto/-/quality/normal/-/preview/&quot;);"></div>
+          <div id="Pn29JuLcoNhSxe63be2xegnl08IfguWo" class="widget widget-text">
+            <p>
+              Detox Anti-inflamatório
+            </p>
+          </div>
+          <div id="NATdxnyuJfOhCuBT0GlbeaQvsAaqZZza" class="widget widget-text">
+            <p>
+              Bebidas nutritivas e saborosas para aliviar a inflamação. Ricas em antioxidantes e compostos anti-inflamatórios para turbinar sua saúde.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="em3fWfOMliUVqkWS65Iv5Hlr3RbKasMP" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="ub54MnBlHfvV4Z4UedFBKTKADC2Uod7J" class="widget widget-box adaptive-delivery-prevent-bg" style="background-size: cover; background-position: center center; background-repeat: no-repeat; background-image: url(&quot;https://cdn.lugc.link/3f4cb2cd-4161-45e3-a3aa-23058effb8dc/-/preview/-/stretch/off/-/format/auto/-/quality/normal/-/preview/&quot;);"></div>
+          <div id="f4VInI6wXv3i45mJDkLNvSr0hlcadaKT" class="widget widget-text">
+            <p>
+              Chás Poderosos
+            </p>
+          </div>
+          <div id="dBk6VR4nhTar0pK7aUbKg0itLnhtDvu1" class="widget widget-text">
+            <p>
+              Aprenda a preparar chás com propriedades anti-inflamatórias e antioxidantes para auxiliar no combate à inflamação crônica.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="NEHs9kKUiOCwEXU01DXrNhAqshHqKyEb" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="m3yxBkMfsTzTxQpsERyVJfQg3dicG7Qc" class="widget widget-box adaptive-delivery-prevent-bg" style="background-size: cover; background-position: center center; background-repeat: no-repeat; background-image: url(&quot;https://cdn.lugc.link/4f1d30b1-0eec-403b-93d6-8bfddae3e1dc/-/preview/-/stretch/off/-/format/auto/-/quality/normal/-/preview/&quot;);"></div>
+          <div id="s5xWOG46nMAeGihUPG7ggg1gPLFk8L7o" class="widget widget-text">
+            <p>
+              #6
+            </p>
+          </div>
+          <div id="XiJB9T3D4rgxEuKqNiVyc37L4xiTg9Qw" class="widget widget-text">
+            <p>
+              Sucos Anti-Inflamatórios
+            </p>
+          </div>
+          <div id="QzZv304M7MW5XTiDCsTTWpd0vKnFW3ZX" class="widget widget-text">
+            <p>
+              Descubra como preparar deliciosos sucos que ajudam a combater a inflamação e melhorar sua saúde em geral.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="NsS9dICmMq5TVuL1QTUbNnoGgIPgKMnS" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="XD7ntssQTUAdv1MTdz4pO6rOeAreqsce" class="widget widget-box adaptive-delivery-prevent-bg" style="background-size: cover; background-position: center center; background-repeat: no-repeat; background-image: url(&quot;https://cdn.lugc.link/d721ca08-c8bb-4132-aabf-05ac7a469d62/-/crop/1028x1102/86,0/-/preview/-/stretch/off/-/format/auto/-/quality/normal/-/preview/&quot;);"></div>
+          <div id="hwvvw2PfmhEzIyyo5gb6QbufbTI9bUgN" class="widget widget-text">
+            <p>
+              #4
+            </p>
+          </div>
+          <div id="OqAvmtoF87TCM4aUC4lpHofTDLtOC2sr" class="widget widget-text">
+            <p>
+              Lanches Saudáveis
+            </p>
+          </div>
+          <div id="Mdk7EF6GhrtpgMsXgFMtwrLgTBW8My8y" class="widget widget-text">
+            <p>
+              Opções de lanches práticos e saudáveis para manter sua dieta anti-inflamatória mesmo nos momentos de correria.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="MBblbsFSsK2DD6TXxfPGNe1KvJyIC1pM" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="paLcTtw82xLc6zkeofGB741icWATAQgM" class="widget widget-text">
+            <h1>
+              A inflamação está na <b>raiz de quase todas as condições crônicas de saúde</b>
+            </h1>
+          </div>
+          <div id="aFSAI9zUhihfMUDL2ieASPCRqs5tQhst" class="widget widget-text">
+            <p>
+              A lista de sintomas de inflamação sistêmica é longa, incluindo <b>dores nas articulações e no corpo, ganho de peso, confusão mental, ansiedade e depressão, problemas digestivos, enxaquecas, problemas de pele e fadiga sem motivo,</b> para citar alguns dos mais comuns. A inflamação também está na raiz de quase todas as doenças autoimunes.
+            </p>
+          </div><img id="qHiUoTTxcMT2uhW9innpfCfwnZgFvMfm" width="250" height="196" class="widget widget-image lazyload" data-original="https://images.assets-landingi.com/chfD8bxg/icon4.png" data-src="https://images.assets-landingi.com/chfD8bxg/icon4.png" alt="" decoding="async">
+          <div id="nLoxnrSQ0ZTRtt7EoBrL3l9MD57ucb1t" class="widget widget-text">
+            <h1>
+              O único com um mapa detalhado
+            </h1>
+          </div>
+          <div id="zfn2BiJTWOCtRNwTNyRRuvNUOXDSDpKN" class="widget widget-text">
+            <p>
+              Neste eBook, preparamos <b>receitas que ajudam a curar inflamações naturalmente <u>usando alimentos como remédios.</u></b>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="rKHrCAEIKqonuyN5ZrhR8IXyLtTnZvR8" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="GuNxOxerSnkVENtcgXXVGPteGKwEJysG" class="widget widget-text">
+            <h3>
+              Plano de Refeições<br>
+              Descomplicado
+            </h3>
+          </div>
+          <div id="AEJlsTUv7FFDTPn9SE0G2eA0FwOBrm2K" class="widget widget-text">
+            <h3>
+              01<br>
+            </h3>
+          </div>
+          <div id="WmdKp64v6iWoDb4ZZkiegCGtlsUS5mVq" class="widget widget-text">
+            <p>
+              Receba um plano de 4 semanas, simples e fácil de seguir, com ingredientes anti-inflamatórios e lista de compra. Começar nunca foi tão fácil!
+            </p>
+          </div>
+          <div id="m9qhzsbrbaUwZTlQkChVGSfEs3lazsZt" class="widget widget-box"></div>
+          <div id="RFfazwrKzDz8eORMwkgXpqr7N0kpKib0" class="widget widget-text">
+            <h3>
+              02<br>
+            </h3>
+          </div>
+          <div id="H2oxzKrcQ4Gk3DKIDsQ7HRz3oJeCgVBm" class="widget widget-text">
+            <h3>
+              Receitas Saborosas<br>
+              e acessíveis:
+            </h3>
+          </div>
+          <div id="x9wKJS0qKhBAUWrOefwWyo2q7CO4rAI4" class="widget widget-text">
+            <p>
+              Seja vegano, paleo ou mediterrâneo, nosso guia se adapta a você com receitas versáteis.
+            </p>
+          </div>
+          <div id="iszCdQfl6aMWb9TduCViPEw6yzQfuIor" class="widget widget-box"></div>
+          <div id="CHhkn8QqGhVEi96vaFThSe9E247fDaA9" class="widget widget-box"></div>
+          <div id="kuhoqgg7dXZeTL9rr1FgAGX8zm1erU8T" class="widget widget-text">
+            <p>
+              Nosso livro é um guia para uma alimentação mais saudável, com listas detalhadas dos alimentos a consumir e a evitar.
+            </p>
+          </div>
+          <div id="tp3IR1FArmB9aPo1VSa3TwAR3xde6Hcm" class="widget widget-text">
+            <h3>
+              Mapa<br>
+              Alimentar
+            </h3>
+          </div>
+          <div id="au8XUihL4cU9xezhhzOhQDJmomlJzXu7" class="widget widget-text">
+            <h3>
+              03<br>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="ppGIdDgz51H9yJbTiOHbD0lDJ2S7nyXT" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="KQTrEAVlIki8qMcFbQvtTZSSpRz4C3lM" class="widget widget-box"></div>
+          <div id="XyoJTMizZTEgp8stgCyEHzPS59kTqa7K" class="widget widget-text">
+            <p>
+              <span style="color: inherit;"><b>Satisfação garantida ou seu</b></span>
+            </p>
+            <p>
+              <span style="color: inherit;"><b>dinheiro de volta.</b></span> <span style="color: inherit; background-color: transparent;">Você tem até</span>
+            </p>
+            <p>
+              <span style="color: inherit; background-color: transparent;">7 dias para solicitar a devolução</span>
+            </p>
+            <p>
+              <span style="color: inherit; background-color: transparent;">do valor pago pelo produto.</span>
+            </p>
+          </div><img id="KbZirr4kKyStbHbck8lrcxkX6ONW7dXu" width="145" height="145" class="widget widget-image lazyloaded" data-original="https://images.assets-landingi.com/62ThXjtK/bf89eb8a_garantia_7_dia_3_1041041000000000000028.png" data-src="https://images.assets-landingi.com/62ThXjtK/bf89eb8a_garantia_7_dia_3_1041041000000000000028.png" alt="" decoding="async" src="https://images.assets-landingi.com/62ThXjtK/bf89eb8a_garantia_7_dia_3_1041041000000000000028.png">
+          <div id="dmTnrbJwZ6DaiFpwrrZrg1Ineu2QchBc" class="widget widget-text wow fadeInUp">
+            <p>
+              Experimente
+            </p>
+          </div>
+          <div id="JSTysUpXRTZQntOU9QD57Ag0TcsEyQbN" class="widget widget-text wow fadeInUp">
+            <p>
+              <span style="background-color: transparent;">Sem Riscos</span><br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="ST61wR1yin01ISFoaJJfCd2NT1Lts9wu" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="IUVkKahrkVNTKAoiB0liM0J3dKXErzww" class="widget widget-text wow fadeInUp">
+            <p>
+              <span style="background-color: transparent;">Lara Vencato</span><br>
+            </p>
+          </div>
+          <div id="OuqlwtdFFzPwVfW1OqZAgnQR0v9v89H6" class="widget widget-text wow fadeInUp">
+            <p>
+              Sobre a Autora,
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="ODh4LRsVVx8waA9q2B5f13m5imMxwwo4" class="widget widget-section lazyloaded">
+      <div class="row">
+        <div class="container lazyloaded">
+          <div id="tTHPgCB1zreJqa93nNohT3dhC4aK4mlQ" class="widget widget-text">
+            <p>
+              A intolerância ao glúten me ensinou a cuidar da minha saúde. <span style="font-weight: bold;">Quando minha filha nasceu com o mesmo diagnóstico, cozinhar deixou de ser uma opção <span style="color: rgb(228, 59, 44);">— virou missão.</span></span>
+            </p>
+          </div>
+          <div id="Ji9ltXfdzl8EQGatLLdmQ9BpB378eopQ" class="widget widget-box"></div>
+        </div>
+      </div>
+    </div>
+    <div id="Ebi9tB0uu6Tva8xCeCv31hp0lc88QQ2h" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="CZBnzsWCv8Nqcs97gU0TRqEShi9w7a3C" class="widget widget-box"></div><a href="/receitas-anti-inflamatorias/button/rKiGVvHsKgw7JFdsfZaT87xkBfC1wO6W" id="rKiGVvHsKgw7JFdsfZaT87xkBfC1wO6W" class="widget widget-button pepperBtn" version="3" subtype="redirect" rel="noopener noreferrer" data-target-url="https://pay.celetus.com/NUTSI26U?model=7">
+          <div class="widget-overlay"></div>
+          <div id="r0lDBXaTK094ussbLTsLrDE00vq3rpLO" class="widget widget-text">
+            BAIXAR MINHA CÓPIA
+          </div></a>
+          <div id="pGGRn5zrSGzUtTKmAWw4rsKhIZOdG4UA" class="widget widget-box"></div>
+          <div id="oukbhTEp4vkeQaTFiyZq7RmFkTlgTgPg" class="widget widget-box"></div><img src="https://icons.assets-landingi.com/icon_ffc37150cea6ab6501e7e490950acd3e.svg" id="B7Cb9BS7Q3upFT0KbLFqWoU3U18K5gpM" class="widget widget-svgicon" alt="">
+          <div id="VsJmm1OhTTdPEXT4Nc7pGDrNFEhqtG2W" class="widget widget-text">
+            <p>
+              Acesso Imediato
+            </p>
+          </div>
+          <div id="Aq4ZlJC2a4SKSFtCfZ4l72JlxtASLpPN" class="widget widget-text wow fadeInUp">
+            <p>
+              <b>Desvende os Segredos das</b>
+            </p>
+            <p>
+              <b><span style="color: rgb(228, 59, 44);">Receitas Anti-inflamatórias</span></b> e
+            </p>
+            <p>
+              comece a preparar hoje mesmo!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="LlwWVhKSLMRlf0mKT6UH92zT7BEu0wOi" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="kOFAeLpFyqSlEJZFhfVsgmlIRrkEn9rd" class="widget widget-text">
+            <p>
+              Copyright © 2021 Todos os direitos Reservados
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="//assetslp.link/assets/js/landend/jquery-3-6-0.min.js" fetchpriority="high"></script> 
+    <script src="/assets/js/landend/frodo.js"></script> 
+    <script>
+
+    const lpStatsModule = (function () {    
+    const url = "https://stats.landingi.com/visit/1896285";
+    const data = {"lid":1896285,"luuid":"c622b10a-b8d1-4fed-a6ef-ecdd67d23798","lhash":"3faf3564155e3fca3ac5","fid":1534389,"auuid":"fcb37a2c-5b4e-4522-9919-a8feba58b5e6","acid":277600,"agid":null,"tid":"90003","hasAccessToEventTracker":false,"hasAccessToEventTrackerDev":false,"hasAccessToEventTrackerData":false,"hasAccessToVisitWithoutCookie":false,"hasAccessToVisitWithLocalStorage":false,"hasAccessToExternalEvents":false,"hasAccessToLocalStorageOptimization":false};
+    const cookieName = "ls_sid_1534389";
+
+    if (data.hasAccessToEventTrackerDev) { 
+        console.log('Running runScript in dev mode')
+        frodo.runScriptDev(cookieName, url, data)
+    } else {
+        frodo.runScript(cookieName, url, data)
+    }
+
+    return {
+        getData: function() { return data; },
+        cookieName: function() { return cookieName; },
+        endpoint: function() { return url; },
+        path: function() { return path; }
+    };
+    })();
+    </script>
+    <script defer type="text/javascript" src="https://scripts.assets-landingi.com/landend/160721/files.js"></script>
+    <script defer fetchpriority="low" type="text/javascript" src="https://old.assets-landingi.com/assets/js/vendor/jquery-form/jquery.form.min.js"></script> 
+    <script type="text/javascript" src="https://scripts.assets-landingi.com/landend/240625/new_landend.js"></script><!-- Meta Pixel Code -->
+    <script>
+
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3260370924247916');
+    fbq('track', 'PageView');
+    </script> <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3260370924247916&amp;ev=PageView&amp;noscript=1"></noscript> <!-- End Meta Pixel Code --><!-- Meta Pixel Code -->
+    <script>
+
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '24004209532544664');
+    fbq('track', 'PageView');
+    </script> <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=24004209532544664&amp;ev=PageView&amp;noscript=1"></noscript> <!-- End Meta Pixel Code -->
+  </body>
+</html>
